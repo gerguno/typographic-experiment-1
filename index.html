@@ -1,0 +1,167 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Typographic Experiment #1 — Oleś Gergun </title>
+        <link rel="stylesheet" href="main.css">
+        <link rel="icon" href="favicon/favicon.ico" type="image/x-icon"/>
+    </head>
+    <body>
+    	<div id="info">
+    		<div> <a href="https://www.instagram.com/olesgergun/" target="_blank">Oleś Gergun</a></div>
+    		<div>T.E. #1</div>
+    		<div id="about-word">About</div>
+    		<a id="info-icon" onclick="openInfo()">
+    			<img src="icons/info.svg">
+    		</a>
+    		<a id="close-icon" onclick="closeInfo()">
+    			<img src="icons/close.svg">
+    		</a>   		
+    	</div>
+    	<div id="about">
+    		<div id="eng">Typographic Experiment #1 is based on an idea of customizing default sans-serif letters with ASCII symbols available on any PC or MAC. <br><br> The following letters were modified: "D" into "IꜾ", "N" into "I\I", "W" into "I/\I", and including Cyrillic analogues: "H" into "I‑I", "B" into "I3", "E" into "IΞ", "M" into "I\/I", and exclusively Cyrillic "И" into "I/I". <br><br> JavaScript solution helps to avoid letter reading confusions by increasing spaces between words and then increasing spaces between letters. As a result modified letters are read as separate symbols. <br><br>Beside text examples, you can easily type your own one as well as download whole code from GitHub.</div>
+    		<div id="ukr">Типографічний експеримент #1 побудований на ідеї кастомізації default sans-serif літер за допомогою ASCII-символів, доступних на будь-якому PC чи MAC. <br><br> Такі літери були модифіковані: "D" в "IꜾ", "N" в "I\I", "W" в "I/\I", включно з кириличними аналогами: "H" в "I‑I", "B" в "I3", "E" в "IΞ", "M" в "I\/I", і окремо кирилична "И" в "I/I". <br><br> JavaScript-рішення допомагає уникнути плутанини зі зчитуванням літер завдяки збільшенню пробілів між словами та наступному збільшенню пробілів між літерами. В результаті модифіковані літери зчитуються як окремі символи. <br><br> Окрім текстових прикладів Ви можете ввести свій власний текст, а також завантажити весь код з GitHub.</div>
+    	</div>
+		<div id="credentials">
+    		<div>© 2018, Kyiv, Ukraine</div>
+    	</div>     	
+		<textarea id="textarea" spellcheck="false" placeholder="Type your text" onkeyup="sizer(this.value);checker();texter(this.value);"></textarea>
+    	<button id="btn-download" onclick="toggleColor()">Download Code</button>	
+    	<button id="btn-example" onclick="generateExample()">Generate example</button>	
+
+		<div id="frame">
+			<div id="text-result"></div>
+		</div>
+    </body>
+    <script>	
+    	var textDiv = document.querySelector('#text-result'),
+	    	input = document.querySelector('#textarea'),
+	    	frame = document.querySelector('#frame'),
+	    	info = document.querySelector('#info'),
+	    	infoIcon = document.querySelector('#info-icon'),
+	    	closeIcon = document.querySelector('#close-icon'),
+	    	about = document.querySelector('#about'),
+	    	aboutWord = document.querySelector('#about-word'),
+	    	credentials = document.querySelector('#credentials'),
+	    	btnExample = document.querySelector('#btn-example'),
+	    	btnDownload = document.querySelector('#btn-download');
+
+    	function texter(textarea){
+    		var textareaReplaced = textarea.toUpperCase();
+    		textareaReplaced = textareaReplaced.replace(/\s/g,'\xa0\xa0\xa0\xa0\xa0\xa0');  // Zaminyty odyn probil na dekiĺka     //Vidtań miž slovamy
+    		textareaReplaced = textareaReplaced.replace(/(\S{1})/g,'$1\xa0\xa0')   			// Dodaty probil pisĺa kožnoï litery   //Vidtań miž bukvamy
+    		textareaReplaced = textareaReplaced.replace(/D/g, 'IꜾ');
+    		textareaReplaced = textareaReplaced.replace(/N/g, 'I\\I');
+    		textareaReplaced = textareaReplaced.replace(/W/g, 'I/\\I');
+    		textareaReplaced = textareaReplaced.replace(/H/g, 'I&#8209;I');   
+    		textareaReplaced = textareaReplaced.replace(/Н/g, 'I&#8209;I'); //Kyrylyća 		
+    		textareaReplaced = textareaReplaced.replace(/B/g, 'I3');
+    		textareaReplaced = textareaReplaced.replace(/В/g, 'I3');        //Kyrylyća
+    		textareaReplaced = textareaReplaced.replace(/E/g, 'IΞ');
+    		textareaReplaced = textareaReplaced.replace(/Е/g, 'IΞ');        //Kyrylyća
+    		textareaReplaced = textareaReplaced.replace(/M/g, 'I\\/I');
+    		textareaReplaced = textareaReplaced.replace(/М/g, 'I\\/I');		//Kyrylyća   
+    		textareaReplaced = textareaReplaced.replace(/И/g, 'I/I');		//Kyrylyća 
+
+			textDiv.innerHTML = textareaReplaced;
+    	}
+
+    	function sizer(field) {
+    		if (document.body.clientWidth > 985) {
+				if (field.length < 6) {
+					textDiv.style.fontSize = '8vw';
+				} else if (field.length < 10) {
+					textDiv.style.fontSize = '4vw';
+				} else if (field.length < 15) {
+					textDiv.style.fontSize = '3vw';
+				} else if (field.length < 20) {
+					textDiv.style.fontSize = '2vw';
+				} else if (field.length < 30) {
+					textDiv.style.fontSize = '1.6vw';
+				} else {
+					textDiv.style.fontSize = '1.6vw';
+				}
+			} else {
+				if (field.length < 6) {
+					textDiv.style.fontSize = '12.5vw';
+				} else if (field.length < 10) {
+					textDiv.style.fontSize = '7vw';
+				} else if (field.length < 15) {
+					textDiv.style.fontSize = '5vw';
+				} else if (field.length < 20) {
+					textDiv.style.fontSize = '4vw';
+				} else if (field.length < 50) {
+					textDiv.style.fontSize = '3.5vw';
+				} else {
+					textDiv.style.fontSize = '2.8vw';
+				}
+			}	
+    	}
+
+    	function checker() {
+    		if (input.value.length == 0) {
+    			sizer(examples[0]);
+    			texter(examples[0]);  	
+    			count = 1;
+    		}
+    	}
+
+		var examples = [
+			'Wenn das liebe Tal um mich dampft, und die hohe Sonne an der Oberfläche der undurchdringlichen Finsternis meines Waldes ruht, und nur einzelne Strahlen sich in das innere Heiligtum stehlen, ich dann im hohen Grase am fallenden Bache liege, und näher an der Erde tausend mannigfaltige Gräschen mir merkwürdig werden!',
+			'Київ — Berlin',
+			'Unite',
+			'You given male was had years gathered gathering good day herb is. Beast form created for third lights creeping abundantly made void saw the you\'re fish. Brought fruitful.',
+			'Prince Harry',
+			'Gravida curabitur pretium suscipit. Magnis ad pede quisque bibendum nonummy consectetuer. Viverra mauris nascetur posuere potenti habitasse ipsum. Lobortis tortor fames tincidunt penatibus. Felis nostra enim scelerisque habitant. Hac erat velit mattis quis in. Nisl pede fames. Euismod, elit natoque, euismod rhoncus justo feugiat Vivamus phasellus lacus.',
+			'Блискавка',
+			'На Нижньому Валу одшукав тридцять сьомий номер, зайшов хвірткою на подвір’я та постукав на ґанку в глухі, поїдені червою двері. За хвилину йому відчинив чоловік у жилетці, з куцою борідкою та сивиною в волоссі.',
+			'Феміда',
+			'Коли Прометей Пiдвiвся руба З чотирьох нiг на двi вогонь з запаленого блискавкою дуба Узявши у кострубатi руки, Повстав проти Зевса, То перша була На землi Пiсля незчисленних ночей Революцiя.',
+			'Černivci',
+			'Verny ž meni toj čas blažennyj, Koly ja žyty počynav, Koly piseń potik natchnennyj. Z džerel nezhlybnych vyrynav. Koly v tuman buv svit povytyj. Ta čar zakrytyj v pupjanky, Koly barvysti ta pjanki V luhach veselych rvav ja kvity.',
+			'Bologna'
+		];	
+		var count = 0;
+	
+		function generateExample() {
+			if (count < examples.length) {
+				var example = examples[count];
+	    		sizer(example);				
+	    		texter(example);
+    			input.value = example;		    		
+	    		count++;
+	    		console.log(count);
+    		} else {
+    			count = 0;	
+    			generateExample();
+    		}
+		}
+		generateExample();		
+
+		function openInfo() {
+			frame.style.width = 'calc(100vw - 650px)';
+			aboutWord.style.display = 'inline-block';
+			btnExample.style.display = 'none';
+			btnDownload.style.display = 'none';
+			info.style.width = '600px';
+			infoIcon.style.display = 'none';
+			closeIcon.style.display = 'inline-block';
+			credentials.style.display = 'block';
+			about.style.display = 'block';
+			input.style.display = 'none';
+		}
+		function closeInfo() {
+			frame.style.width = 'calc(100vw - 310px)';
+			aboutWord.style.display = 'none';
+			btnExample.style.display = 'block';
+			btnDownload.style.display = 'block';
+			info.style.width = '256px';
+			infoIcon.style.display = 'inline-block';
+			closeIcon.style.display = 'none';
+			credentials.style.display = 'none';
+			about.style.display = 'none';
+			input.style.display = 'block';
+		}		
+    </script>
+</html>

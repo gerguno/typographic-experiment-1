@@ -1,0 +1,259 @@
+body {
+	font-family: sans-serif;	
+	background: black;
+	color:white;
+}
+
+*:focus {
+	outline:0; 
+}
+
+textarea{
+	width: 256px;
+	height: 68vh;
+	border: none;
+	font-size: 18px;
+	font-weight: 300;
+	line-height:1.25;
+	resize: none;
+	overflow: scroll;
+	position: absolute;
+	background:black;
+	color:white;
+	left: 23px;
+	top: 89px;
+	/*	letter-spacing: 0.4px;*/
+}
+
+#btn-example, #btn-download {
+	width:256px;
+}	
+#btn-example {
+	border: 1px solid white;
+	background: white;
+	color:black;
+	font-size:14px;
+	font-weight: 700;
+	padding:15px;
+	position: absolute;
+	left:25px;
+	bottom: 110px;
+}
+
+#btn-example:hover {
+	border: 1px solid white;	
+	background: black;
+	color: white;
+}
+
+#btn-download {
+	border: 1px solid #fff;
+	background:black;
+	color:white;
+	font-size:14px;
+	font-weight: 700;
+	padding:15px;
+	position: absolute;
+	left:25px;
+	bottom: 50px;
+}
+
+#btn-download:hover {
+	background: #fff;
+	color: black;
+}
+
+#info, #credentials {
+	width:256px;
+	position: absolute;
+	font-size: 12px;
+	color:rgba(255,255,255,0.5);
+}
+
+#info {
+	left:25px;
+	top: 40px;	
+}
+
+#info div:not(#about-word) {
+	display: inline-block;
+	padding-right:18px;
+}
+
+#info a {
+	font-size: 12px;
+	color:rgba(255,255,255,0.5);
+	text-decoration: none;
+}
+
+#info a:hover {
+/*	padding-bottom: 5px;
+	border-bottom: 1px solid rgba(255,255,255,0.5);*/
+	color:rgba(255,255,255,0.3);
+}
+
+#about-word {
+	display:none;
+}
+
+#info-icon {
+	float: right;
+    opacity: 0.5;
+    padding-right: 0 !important;
+}
+
+#info-icon:hover {
+	opacity: 0.3;
+	cursor: pointer;
+}
+
+#info-icon img {
+	width: 17px;
+	height: 17px;
+	margin-top: -3px;
+}
+
+#close-icon {
+	float: right;
+    opacity: 0.5;
+    padding-right: 0 !important;
+    display: none;
+}
+
+#close-icon:hover {
+	opacity: 0.3;
+	cursor: pointer;
+}
+
+#close-icon img {
+	width: 14px;
+	height: 14px;
+	margin-top: -3px;
+}
+
+#about {
+	font-size: 18px;
+	font-weight: 300;
+	line-height:1.25;
+	color:white;
+	display:none;
+	position:absolute;
+	left: 23px;
+	top: 89px;	
+}
+
+#about div {
+	width: calc((575px / 2) - 20px);
+	padding-right: 20px;
+	vertical-align: top;
+	display: inline-block;
+}
+
+#about #ukr {
+	letter-spacing: 0.5px;
+}
+
+#credentials {
+	left:25px;
+	bottom: 40px;
+	display: none;
+}
+
+#text-result {
+    font-size: 1.6vw;
+	line-height: 2;
+	word-wrap: break-word;
+	text-align: center;
+	padding:20px 80px;
+	position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#frame {
+	position: absolute;
+	right: 0;
+	top:0;
+	width: calc(100vw - 310px);
+	height:100vh;
+	background-color: black;
+	color: white;
+	overflow: scroll;
+	border-left: 1px solid white;
+}
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+	#frame {
+		top: 460px;
+		height:calc(100vh - 460px);
+		width:100vw;
+		border-left:none;
+		border-top: 2px solid #fff;
+	}
+	textarea {
+		width:89vw;
+		height: 44px;
+		top: 155px;
+		left: 55px;
+		font-size: 35px;
+	}
+	#info {
+		top:64px;
+		left:55px;
+		font-size:35px;
+		width:89vw;
+	}
+	#info a {
+		font-size:35px;
+	}	
+	#info div:not(#about-word) {
+		padding-right:40px;
+	}
+	#info-icon {
+		display: none;
+	}	
+	#btn-example {
+		width: 43vw;
+		height:100px;
+		left:55px;
+		top: 280px;
+		padding:30px;
+		font-size:30px;
+	}
+	#btn-download {
+		width: 43vw;
+		right: 55px;
+		height:100px;
+		top: 280px;
+		padding:30px;
+		font-size:30px;
+		border:2px solid #fff;
+		left: initial;
+	}		
+	#about {
+		display:block;
+		height: 1000px;
+		width: 89vw;
+		left: 55px;
+		top:calc(100vh + 40px);
+	}	
+	#about div {
+		width: 39vw;
+		padding-right: 50px;
+		font-size: 35px;
+	}
+	#credentials {
+		width: 93vw;
+		font-size: 35px;
+		display: block;
+		top: calc(100vw + 2620px);
+		height: 113px;
+		left: 55px;
+	}
+	#credentials a {
+		font-size: 30px;
+	}
+}
